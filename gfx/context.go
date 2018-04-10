@@ -34,6 +34,16 @@ func (ctx *Context) SetColor(col color.Color) {
 	ctx.col = col
 }
 
+// SetColorRGBA sets the drawing color.
+func (ctx *Context) SetColorRGBA(r, g, b, a byte) {
+	ctx.SetColor(color.RGBA{r, g, b, a})
+}
+
+// Clear clears the destination image.
+func (ctx *Context) Clear() {
+	draw.Draw(ctx.dst, ctx.dst.Bounds(), &image.Uniform{ctx.col}, image.ZP, draw.Src)
+}
+
 // Point draws a point.
 func (ctx *Context) Point(x, y int) {
 	ctx.dst.Set(x, y, ctx.col)
@@ -53,6 +63,15 @@ func (ctx *Context) VLine(y1, y2, x int) {
 	for y := y1; y < y2; y++ {
 		dst.Set(x, y, col)
 	}
+}
+
+// Rectangle draws a rectange.
+func (ctx *Context) Rectangle(x1, y1, width, height int) {
+	x2, y2 := x1+width-1, y1+width-1
+	ctx.HLine(x1, x2, y1)
+	ctx.HLine(x1, x2, y1)
+	ctx.VLine(y1+1, y2-1, x1)
+	ctx.VLine(y1+1, y2-1, x2)
 }
 
 // FillCircle draws a filled circle.
