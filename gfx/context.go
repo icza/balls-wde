@@ -21,6 +21,14 @@ type Context struct {
 	col color.Color
 }
 
+// NewContext returns a new Context initialized with black drawing color.
+func NewContext(dst draw.Image) *Context {
+	return &Context{
+		dst: dst,
+		col: color.NRGBA{0, 0, 0, 255},
+	}
+}
+
 // SetColor sets the drawing color.
 func (ctx *Context) SetColor(col color.Color) {
 	ctx.col = col
