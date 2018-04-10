@@ -5,6 +5,6 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/icza/balls-wde)](https://goreportcard.com/report/github.com/icza/balls-wde)
 
 Bouncing balls demo written in Go. This is a rewrite of
-[github.com/icza/balls](https://github.com/icza/balls), but this one uses
+[github.com/icza/balls-sdl](https://github.com/icza/balls-sdl), but this one uses
 [go.wde](https://github.com/skelterjohn/go.wde) for graphics and events instead of
 [go-sdl2](https://github.com/veandco/go-sdl2) like the original.
