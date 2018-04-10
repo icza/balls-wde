@@ -75,7 +75,6 @@ func (s *scene) paintOSD(ctx *gfx.Context) {
 		format string
 		param  interface{}
 	}{
-		{"F", "fullscreen", nil},
 		{"R", "restart", nil},
 		{"Q/X", "quit", nil},
 		{"O", "OSD (on-screen display)", nil},
