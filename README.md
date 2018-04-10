@@ -8,3 +8,7 @@ Bouncing balls demo written in Go. This is a rewrite of
 [github.com/icza/balls-sdl](https://github.com/icza/balls-sdl), but this one uses
 [go.wde](https://github.com/skelterjohn/go.wde) for graphics and events instead of
 [go-sdl2](https://github.com/veandco/go-sdl2) like the original.
+
+Screenshot:
+
+![Bouncing Balls WDE v1.0.0 screenshot](screenshots/balls-wde-v1.0.0.png)
