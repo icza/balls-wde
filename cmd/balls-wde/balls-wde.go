@@ -38,7 +38,7 @@ var (
 )
 
 // run runs the demo.
-func run() (exitCode int) {
+func run() {
 	w, h := 800, 550
 
 	var err error
@@ -63,8 +63,6 @@ func run() (exitCode int) {
 	eng.Stop()
 
 	wde.Stop()
-
-	return 0
 }
 
 // handleEvent handles events and tells if we need to quit (based on the event).
