@@ -52,7 +52,7 @@ func (ctx *Context) Point(x, y int) {
 // HLine draws a horizontal line.
 func (ctx *Context) HLine(x1, x2, y int) {
 	dst, col := ctx.dst, ctx.col
-	for x := x1; x < x2; x++ {
+	for x := x1; x <= x2; x++ {
 		dst.Set(x, y, col)
 	}
 }
@@ -60,7 +60,7 @@ func (ctx *Context) HLine(x1, x2, y int) {
 // VLine draws a vertical line.
 func (ctx *Context) VLine(y1, y2, x int) {
 	dst, col := ctx.dst, ctx.col
-	for y := y1; y < y2; y++ {
+	for y := y1; y <= y2; y++ {
 		dst.Set(x, y, col)
 	}
 }
