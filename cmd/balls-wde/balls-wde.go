@@ -29,20 +29,14 @@ func main() {
 	wde.Run()
 }
 
-var (
-	// win is the main window
-	win wde.Window
-
-	// eng is the engine
-	eng *engine.Engine
-)
+var eng *engine.Engine // eng is the engine
 
 // run runs the demo.
 func run() {
 	w, h := 800, 550
 
 	var err error
-	win, err = wde.NewWindow(w, h)
+	win, err := wde.NewWindow(w, h)
 	if err != nil {
 		log.Printf("Create window error: %v", err)
 		return
