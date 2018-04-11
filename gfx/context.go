@@ -11,6 +11,9 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
+// clearFunc is an optional, OS optimized clear function
+var clearFunc func(ctx *Context) bool
+
 // Context provides primitive drawing operations on a draw.Image.
 // All operations use the drawing color set by SetColor().
 type Context struct {
@@ -41,6 +44,13 @@ func (ctx *Context) SetColorRGBA(r, g, b, a byte) {
 
 // Clear clears the destination image.
 func (ctx *Context) Clear() {
+	if clearFunc != nil {
+		if clearFunc(ctx) {
+			return
+		}
+	}
+
+	// Fallback, genenral clear:
 	draw.Draw(ctx.dst, ctx.dst.Bounds(), &image.Uniform{ctx.col}, image.ZP, draw.Src)
 }
 
