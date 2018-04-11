@@ -44,13 +44,11 @@ func (ctx *Context) SetColorRGBA(r, g, b, a byte) {
 
 // Clear clears the destination image.
 func (ctx *Context) Clear() {
-	if clearFunc != nil {
-		if clearFunc(ctx) {
-			return
-		}
+	if clearFunc != nil && clearFunc(ctx) {
+		return
 	}
 
-	// Fallback, genenral clear:
+	// Fallback, general clear:
 	draw.Draw(ctx.dst, ctx.dst.Bounds(), &image.Uniform{ctx.col}, image.ZP, draw.Src)
 }
 
